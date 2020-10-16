@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Route } from 'react-router-dom';
 
 // Header, Footer, Friend List, Profile, Posts
+import Header from './components/Header';
+import LoginForm from './components/forms/LoginForm';
 
 class App extends Component {
   constructor(props) {
@@ -38,10 +41,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
-          <h1>Hello World</h1>
-          <button onClick={this.logIn}>Log In / Register</button>
-        </header>
+          <Header />
+          <Route path="/login" render={() => <LoginForm login={this.logIn} /> } />
         
       </div>
     );
