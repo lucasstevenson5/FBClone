@@ -4,7 +4,11 @@ header {
   margin: 0px 25px;
 }
 
-a {
+a, button {
   height: 25px;
   margin: 35px;
+}
+
+img {
+  width: 50%;
 }

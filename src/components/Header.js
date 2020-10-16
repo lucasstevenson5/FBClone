@@ -7,7 +7,11 @@ const Header = (props) => {
         <div>
             <header>
                  <h1>FB Clone</h1>
-                <Link to="/login">Login</Link>
+                 {props.loggedIn ? 
+                    <button onClick={props.logout}>Logout</button> 
+                    : 
+                    <Link to="/login">Login</Link>}
+                
             </header>
         </div>
     )
