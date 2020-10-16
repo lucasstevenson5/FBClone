@@ -25,4 +25,27 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: olivedrab;
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-content aside {
+  flex-basis: 25%;
+  margin-left: 15px;
+  background-color: mistyrose;
+  padding: 15px;
+}
+
+.main-content .wrapper {
+  flex-basis: 75%;
+}
+
+.friends {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }

@@ -14,6 +14,11 @@ class Profile extends Component {
             <div className="wrapper">
                 <img src={this.props.user.profileImg} alt="User Image" />
                 <p>{this.props.user.username}</p>
+                { this.props.notCurrentUser && 
+                    <button onClick={() => this.props.addFriend(this.props.userId)}>
+                        Friend Me!
+                    </button> 
+                }
                 {this.props.user.posts && this.props.user.posts.map((post, id) => {
                     return (
                         <div className="post" key={id}>
