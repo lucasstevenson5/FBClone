@@ -8,6 +8,7 @@ import Header from './components/Header';
 import LoginForm from './components/forms/LoginForm';
 import Profile from './components/Profile';
 import UserList from './components/UserList';
+import CreatePostForm from './components/forms/CreatePostForm';
 
 class App extends Component {
   constructor(props) {
@@ -65,6 +66,16 @@ class App extends Component {
     })
   }
 
+  createPost = (e, post) => {
+    e.preventDefault();
+    const user = this.state.user
+    user.posts.push(post)
+    this.setState({
+      user: user
+    })
+    this.props.history.push('/profile');
+  }
+
   async componentDidMount() {
     if (localStorage.getItem('jwt')) {
       const users =  await axios.get("https://randomuser.me/api/?results=10");
@@ -91,6 +102,9 @@ class App extends Component {
             <Route exact path="/profile" render={() => 
               <Profile user={this.state.user} />
             } />
+            <Route path="/post/new" render={() =>
+              <CreatePostForm createPost={this.createPost} />
+            } /> 
             {this.state.users.length > 0 ?
               <Route exact path="/profile/:userId" render={(props) => {
                 const user = this.state.users[props.match.params.userId];

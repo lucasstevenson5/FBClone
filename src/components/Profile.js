@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { Link } from 'react-router-dom';
+
 class Profile extends Component {
     constructor(props) {
         super(props);
@@ -19,9 +21,11 @@ class Profile extends Component {
                         Friend Me!
                     </button> 
                 }
+                <Link to="/post/new">Add a post!</Link>
                 {this.props.user.posts && this.props.user.posts.map((post, id) => {
                     return (
                         <div className="post" key={id}>
+                            <h5>{post.title}</h5>
                             <p>{post.content}</p>
                         </div>
                     )
