@@ -95,7 +95,12 @@ class App extends Component {
 
           <Header loggedIn={this.state.loggedIn} logout={this.logout}/>
           <div className="main-content">
-            { this.state.loggedIn && <UserList users={this.state.users} /> }
+            { this.state.loggedIn && 
+              <div>
+                <h3>Potential Friends</h3>
+                <UserList users={this.state.users} />
+              </div> 
+            }
             <Route path="/login" render={() => 
               <LoginForm logIn={this.logIn} error={this.state.error} /> 
             } />
@@ -120,7 +125,10 @@ class App extends Component {
               <Redirect to="/profile" />
             }
             { this.state.user.friends.length > 0 && 
-              <UserList users={this.state.user.friends} /> 
+              <div>
+                <h3>Friends List</h3>
+                <UserList users={this.state.user.friends} /> 
+              </div> 
             }
           </div>
       </div>

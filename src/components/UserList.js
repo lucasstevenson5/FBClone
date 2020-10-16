@@ -8,6 +8,7 @@ const UserList = (props) => {
             {props.users.map((user, id) => {
                 return (
                     <div key={id} className="user-list">
+                        
                         <Link to={`/profile/${id}`}>
                             <img className="friends" src={user.picture.medium} alt="potential friend" />
                             <p>{user.name.first} {user.name.last}</p>
